@@ -59,5 +59,17 @@ public class University {
         return roundedUpGrades;
     }
 
+    public int maximumRoundedUp(ArrayList<Integer> grades){
+        int maximumRoundedUpGrade = 0;
+        ArrayList<Integer> roundedUpGrades = roundedUp(grades);
+
+        for (int i = 0; i < roundedUpGrades.size(); i++){
+            if (roundedUpGrades.get(i) > maximumRoundedUpGrade){
+                maximumRoundedUpGrade = roundedUpGrades.get(i);
+            }
+        }
+        return maximumRoundedUpGrade;
+    }
+
 
 }
