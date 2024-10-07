@@ -3,7 +3,29 @@ import java.util.ArrayList;
 //AUFGABE 1
 public class University {
     int treshold = 40;
+    int rounding_threshold = 38;
 
+    public int round(int grade){
+        int final_grade = 0;
+        if (grade < rounding_threshold){
+            return grade;
+        }
+
+        int copy_grade = grade;
+
+        while (copy_grade % 5 != 0){
+            copy_grade++;
+        }
+
+        int difference = copy_grade - grade;
+
+        if (difference < 3){
+            final_grade = copy_grade;
+        }else {
+            final_grade = grade;
+        }
+        return final_grade;
+    }
 
     public ArrayList<Integer> insufficient(ArrayList<Integer> grades){
         ArrayList<Integer> insufficientGrades = new ArrayList<>();
@@ -28,6 +50,14 @@ public class University {
         return averageGrade;
     }
 
+    public ArrayList<Integer> roundedUp(ArrayList<Integer> grades){
+        ArrayList<Integer> roundedUpGrades = new ArrayList<>();
+
+        for (int i = 0; i < grades.size(); i++){
+            roundedUpGrades.add(round(grades.get(i)));
+        }
+        return roundedUpGrades;
+    }
 
 
 }
