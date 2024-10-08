@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class BigNumbers {
 
     public int[] number1;
@@ -72,8 +75,44 @@ public class BigNumbers {
         System.arraycopy(numberDiff, zeros, finalDiff, 0, finalDiff.length);
 
         return finalDiff;
+    }
 
+    public int[] multiplication(int multiplicator){
+        int[] chosenNumber = new int[this.number1.length];
 
+        System.out.println("Choose which big number to use for the multiplication: ");
+        System.out.println(Arrays.toString(this.number1));
+        System.out.println(Arrays.toString(this.number2));
+        System.out.println("Enter 1 for the first number and 2 for the second number");
 
+        Scanner scanner = new Scanner(System.in);
+
+        int choice = scanner.nextInt();
+
+        if (choice == 1){
+            chosenNumber = this.number1;
+        }
+        if (choice == 2){
+            chosenNumber = this.number2;
+        }
+
+        int[] numberMult = new int[this.number1.length + 1];
+        int carry = 0;
+
+        for (int i = this.number1.length - 1;i >= 0;i--){
+            int localMult = chosenNumber[i] * multiplicator + carry;
+            numberMult[i + 1] = localMult % 10;
+            carry = localMult / 10;
+        }
+
+        numberMult[0] = carry;
+
+        if (numberMult[0] == 0){
+            int[] finalMult = new int[chosenNumber.length];
+            System.arraycopy(numberMult, 1, finalMult, 0, chosenNumber.length);
+            return finalMult;
+        }else {
+            return numberMult;
+        }
     }
 }

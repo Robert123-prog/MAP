@@ -21,5 +21,8 @@ public class Main {
         System.out.println(Arrays.toString(bn.sum()));
         System.out.println(Arrays.toString(bn.difference()));
 
+        BigNumbers bn2 = new BigNumbers(new int[]{2, 3, 6, 0, 0, 0, 0, 0, 0}, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1});
+        System.out.println(Arrays.toString(bn2.multiplication(2)));
+
     }
 }
