@@ -42,5 +42,16 @@ public class ArrayOperations {
         return sum;
     }
 
+    public int minSum(){
+        int maxValue = this.maximum();
+        int sum = 0;
 
+        for (int number: this.array){
+            if(number != maxValue){
+                sum += number;
+            }
+        }
+
+        return sum;
+    }
 }
