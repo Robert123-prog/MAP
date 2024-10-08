@@ -17,7 +17,9 @@ public class Main {
         System.out.println(ops.maxSum());
         System.out.println(ops.minSum());
 
-
+        BigNumbers bn = new BigNumbers(new int[] {8, 7, 6, 4, 0, 0, 0}, new int[] {8, 7, 6, 2, 0, 0, 0});
+        System.out.println(Arrays.toString(bn.sum()));
+        System.out.println(Arrays.toString(bn.difference()));
 
     }
 }
