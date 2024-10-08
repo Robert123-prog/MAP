@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 //AUFGABE 1
 public class University {
     int treshold = 40;
@@ -27,45 +25,48 @@ public class University {
         return final_grade;
     }
 
-    public ArrayList<Integer> insufficient(ArrayList<Integer> grades){
-        ArrayList<Integer> insufficientGrades = new ArrayList<>();
+    public int[] insufficient(int[] grades){
+        int[] insufficientGrades = new int[grades.length];
+        int index = 0;
 
-        for (int i = 0; i < grades.size(); i++){
-            if (grades.get(i) < treshold){
-                insufficientGrades.add(grades.get(i));
+        for(int grade: grades){
+            if (grade < treshold){
+                insufficientGrades[index] = grade;
+                index++;
             }
         }
 
         return insufficientGrades;
     }
 
-    public double average(ArrayList<Integer> grades){
+    public double average(int[] grades){
         int sum = 0;
 
-        for (int i = 0; i < grades.size(); i++){
-            sum += grades.get(i);
+        for (int grade: grades){
+            sum += grade;
         }
 
-        double averageGrade = sum / grades.size();
-        return averageGrade;
+        return sum /= grades.length;
     }
 
-    public ArrayList<Integer> roundedUp(ArrayList<Integer> grades){
-        ArrayList<Integer> roundedUpGrades = new ArrayList<>();
+    public int[] roundedUp(int[] grades){
+        int[] roundedUpGrades = new int[grades.length];
+        int index = 0;
 
-        for (int i = 0; i < grades.size(); i++){
-            roundedUpGrades.add(round(grades.get(i)));
+        for (int grade: grades){
+            roundedUpGrades[index] = this.round(grade);
+            index++;
         }
         return roundedUpGrades;
     }
 
-    public int maximumRoundedUp(ArrayList<Integer> grades){
-        int maximumRoundedUpGrade = 0;
-        ArrayList<Integer> roundedUpGrades = roundedUp(grades);
+    public int maximumRoundedUp(int[] grades){
+        int maximumRoundedUpGrade = Integer.MIN_VALUE;
+        int[] roundedUpGrades = roundedUp(grades);
 
-        for (int i = 0; i < roundedUpGrades.size(); i++){
-            if (roundedUpGrades.get(i) > maximumRoundedUpGrade){
-                maximumRoundedUpGrade = roundedUpGrades.get(i);
+        for (int grade: roundedUpGrades){
+            if (grade > maximumRoundedUpGrade){
+                maximumRoundedUpGrade = grade;
             }
         }
         return maximumRoundedUpGrade;
