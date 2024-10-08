@@ -115,4 +115,56 @@ public class BigNumbers {
             return numberMult;
         }
     }
+
+    public int[] division(int divider){
+        int[] chosenNumber = new int[this.number1.length];
+
+        System.out.println("Choose which big number to use for the division: ");
+        System.out.println(Arrays.toString(this.number1));
+        System.out.println(Arrays.toString(this.number2));
+        System.out.println("Enter 1 for the first number and 2 for the second number");
+
+        Scanner scanner = new Scanner(System.in);
+
+        int choice = scanner.nextInt();
+
+        if (choice == 1){
+            chosenNumber = this.number1;
+        }
+        if (choice == 2){
+            chosenNumber = this.number2;
+        }
+
+        int[] numberDiv = new int[chosenNumber.length];
+        int carry = 0;
+
+        for (int i = 0;i < chosenNumber.length;i++){
+            int localDiv = carry * 10 + chosenNumber[i];
+            numberDiv[i] = localDiv / divider;
+            carry = localDiv % divider;
+        }
+
+        //for cases such as 1111111
+
+
+        int zeros = 0;
+
+        for (int i = 0;i < numberDiv.length;i++){
+            if (numberDiv[i] == 0){
+                zeros++;
+            }
+            if (numberDiv[i] != 0){
+                break;
+            }
+        }
+
+        if (zeros == chosenNumber.length){
+            return new int[]{0};
+        }
+
+        int[] finalDiv = new int[chosenNumber.length - zeros];
+        System.arraycopy(numberDiv, zeros, finalDiv, 0, finalDiv.length);
+
+        return finalDiv;
+    }
 }

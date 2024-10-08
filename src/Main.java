@@ -24,5 +24,9 @@ public class Main {
         BigNumbers bn2 = new BigNumbers(new int[]{2, 3, 6, 0, 0, 0, 0, 0, 0}, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1});
         System.out.println(Arrays.toString(bn2.multiplication(2)));
 
+        BigNumbers bn3 = new BigNumbers(new int[]{2, 3, 6, 0, 0, 0, 0, 0, 0}, new int[]{3, 3, 3, 3, 3, 3, 3, 3, 3});
+        System.out.println(Arrays.toString(bn3.division(2)));
+
+
     }
 }
