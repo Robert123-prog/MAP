@@ -1,8 +1,8 @@
-public class Arrays {
+public class ArrayOperations {
     int n;
     int[] array = new int[n];
 
-    public Arrays(int n, int[] array) {
+    public ArrayOperations(int n, int[] array) {
         this.n = n;
         this.array = array;
     }
@@ -27,6 +27,19 @@ public class Arrays {
             }
         }
         return min;
+    }
+
+    public int maxSum(){
+        int minValue = this.minimum();
+        int sum = 0;
+
+        for (int number: this.array){
+            if (number != minValue){
+                sum += number;
+            }
+        }
+
+        return sum;
     }
 
 
